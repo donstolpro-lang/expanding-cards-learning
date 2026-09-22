@@ -17,3 +17,15 @@ function removeActiveClasses() {
     panel.classList.remove('active')
   })
 }
+const buttons = document.querySelectorAll('.panel-button')
+
+buttons.forEach(button => {
+  button.addEventListener('click', event => {
+    event.stopPropagation()
+
+    const panel = button.closest('.panel')
+    const title = panel.querySelector('h3').textContent
+
+    alert(`Вы выбрали направление: ${title}`)
+  })
+})
